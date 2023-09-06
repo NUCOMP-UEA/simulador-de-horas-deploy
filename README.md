@@ -33,7 +33,7 @@ docker compose up -d && docker logs add_hours_api -f
 
 ### Abrindo o Swagger da aplicação
 * Será necessário clicar no link que aparece após o comando acima ser executado, o link estará no seguinte formato:
-  * **http://<ip-do-host>:8000**.
+  * **http://\[ip-do-host\]:8000**.
 * O Swagger do projeto é subdividido em **três grupos**:
   * **Students**: há uma rota responsável pela criação de um aluno que será vinculado a uma tabela de atividades;
   * **Activity Type**: possui rotas de CRUD, onde a criação, remoção e atualização são protegidas por autenticação e a rota de pesquisa pode ser livremente requisitada;
