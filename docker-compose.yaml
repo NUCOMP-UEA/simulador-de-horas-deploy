@@ -9,6 +9,7 @@ services:
       - "config/.env"
     depends_on:
       - add-hours-database
+      - add-hours-minio
   add-hours-database:
     image: mongo:6.0.9-rc0-jammy
     container_name: add-hours-database
@@ -20,3 +21,13 @@ services:
       - "27017:27017"
     volumes:
       - ./mongo/data:/data/db
+  add-hours-minio:
+    image: docker.io/bitnami/minio:2023
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+    environment:
+      - MINIO_ROOT_USER=minio-add-hours
+      - MINIO_ROOT_PASSWORD=minio-add-hours
+    volumes:
+      - ./minio_data:/data
